@@ -1,11 +1,11 @@
 ALL_ITEMS = {
   'Entrées': (
-    ('Salade verte', 2),
-    ('Salade tomates oignons', 4),
-    ('Salade mozza basilic', 6),
-    ('Salade crudités', 6),
-    ('Salade composée', 8),
-    ('Avocat pesto', 8)
+    ('Salade verte', 2.0),
+    ('Salade tomates oignons', 4.0),
+    ('Salade mozza basilic', 6.0),
+    ('Salade crudités', 6.0),
+    ('Salade composée', 8.0),
+    ('Avocat pesto', 8.0)
   ),
   'Légumes/Pâtes': (
     ('Pâtes nature', 2.0),

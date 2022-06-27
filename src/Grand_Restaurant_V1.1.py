@@ -47,12 +47,15 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
             category = QTreeWidgetItem()
             category.setText(0, category_name)
             category.setData(0, DataRole, None)
+
             for item_name, item_price in item_list:
                 item = QTreeWidgetItem()
                 item.setText(0, item_name)
                 item.setText(1, str(item_price))
                 item.setData(0, DataRole, item_price)
+
                 category.addChild(item)
+
             self.tree.addTopLevelItem(category)
 
 
