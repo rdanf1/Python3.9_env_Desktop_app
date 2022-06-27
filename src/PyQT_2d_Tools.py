@@ -1,4 +1,5 @@
-# DR - 26/06/2022 - Python Studi's Course
+# DR - 26/06/2022 - Python Studi's Course (Desktop Interface with Python)
+#
 # !! dependency pyqt6-plugins required by pyqt6-tools is for Python3.9 MAXIMUM !!
 # NB: Installed Python3.9 instead of 3.10 ( $ sudo dnf install python3.9 )
 #     Then installed a new Python 3.9 venv,
@@ -10,6 +11,8 @@
 #   2.  Compile .ui file of gui designer to .py file ready to use :
 #       $ pyuic6 -x gui/interface_file.ui -o pui/interface_file.py
 #
+# NB2: Renamed (within "$ pyqt6-tool designer interface_file.ui")
+#      initialy called "treeWidget" to "tree".
 
 from PyQt6.QtWidgets import QApplication, QMainWindow, \
     QTreeWidgetItem
