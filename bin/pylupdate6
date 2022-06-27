@@ -1,4 +1,4 @@
-#!/home/rdanf0/Bureau/Python3.9_virtualenv_demo/bin/python
+#!$PYTHONPATH/python
 # -*- coding: utf-8 -*-
 import re
 import sys
