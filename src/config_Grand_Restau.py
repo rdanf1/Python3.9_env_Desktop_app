@@ -26,7 +26,7 @@ ALL_ITEMS = {
     ('Café gourmand', 6.0)
   ),
   'Boissons': (
-    ("'Carafe d'O", 0.0),
+    ("Carafe d'O", 0.0),
     ('Jus de fruit', 2.0),
     ('Eau minerale', 2.0),
     ('Café', 1.5)

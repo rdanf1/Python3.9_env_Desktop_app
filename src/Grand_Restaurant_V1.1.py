@@ -16,6 +16,7 @@
 
 from PyQt6.QtWidgets import QApplication, QMainWindow, \
      QTreeWidgetItem
+from PyQt6.QtCore import Qt
 
 import os
 import sys
@@ -26,6 +27,10 @@ from threading import Timer
 
 from pui.interface_Restau_Carte_ou_Menus_V1 import Ui_MainWindow
 
+from config_Grand_Restau import ALL_ITEMS
+
+DataRole = Qt.ItemDataRole.UserRole
+
 
 class PuiWindow(Ui_MainWindow, QMainWindow):
     def __init__(self):
@@ -35,6 +40,20 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
         self.setupUi(self)
 
         # Some modifications
+        self.load_items()
+
+    def load_items(self):
+        for category_name, item_list in ALL_ITEMS.items():
+            category = QTreeWidgetItem()
+            category.setText(0, category_name)
+            category.setData(0, DataRole, None)
+            for item_name, item_price in item_list:
+                item = QTreeWidgetItem()
+                item.setText(0, item_name)
+                item.setText(1, str(item_price))
+                item.setData(0, DataRole, item_price)
+                category.addChild(item)
+            self.tree.addTopLevelItem(category)
 
 
 def main():
