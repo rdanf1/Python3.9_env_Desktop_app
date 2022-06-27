@@ -68,7 +68,8 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
     def setup_links(self):
         self.tree.itemDoubleClicked.connect(self.order_item)
         self.order_summarize.itemDoubleClicked.connect(self.cancel_item)
-
+        self.pay_btn.clicked.connect(self.pay)
+        self.cancel_btn.clicked.connect(self.cancel)
 
     def add_to_order(self, title, price):
         item = QListWidgetItem()
@@ -101,6 +102,16 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
         total = self.subtotal * 1.10
         # self.total_label.setText(str(total))
         self.total_label.setText('{:.02f}'.format(total))
+
+    def pay(self):
+        self.gain += self.subtotal
+        self.gain_label.setText('{:.02f}'.format(self.gain))
+        self.cancel()
+
+    def cancel(self):
+        self.order_summarize.clear()
+        self.subtotal = 0.00
+        self.refresh_price()
 
 
 def main():
