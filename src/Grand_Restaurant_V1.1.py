@@ -45,7 +45,7 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
         self.load_items()
         self.setup_links()
 
-        subtotal: float
+        # subtotal: float
         self.subtotal = 0.00
         self.gain = 0.00
 
@@ -54,7 +54,7 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
             category = QTreeWidgetItem()
             category.setText(0, category_name)
             category.setData(0, DataRole, None)
-            item_price: float
+            # item_price: float
             for item_name, item_price in item_list:
                 item = QTreeWidgetItem()
                 item.setText(0, item_name)
@@ -77,7 +77,7 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
         self.order_summarize.addItem(item)
 
     def order_item(self, item: QTreeWidgetItem):
-        price: float
+        # price: float
         price = item.data(0, DataRole)
         if price is None:
             return
