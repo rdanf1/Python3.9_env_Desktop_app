@@ -67,6 +67,8 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
 
     def setup_links(self):
         self.tree.itemDoubleClicked.connect(self.order_item)
+        self.order_summarize.itemDoubleClicked.connect(self.cancel_item)
+
 
     def add_to_order(self, title, price):
         item = QListWidgetItem()
@@ -86,8 +88,12 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
         title = f'{item_name} -- ({pricetxt})'
         self.add_to_order(title, price)
 
-    def cancel_item(self):
-        pass
+    def cancel_item(self, item: QListWidgetItem):
+        price = item.data(DataRole)
+        row = self.order_summarize.row(item)
+        self.order_summarize.takeItem(row)
+        self.subtotal -= price
+        self.refresh_price()
 
     def refresh_price(self):
         # self.subtotal_label.setText(str(self.subtotal))
