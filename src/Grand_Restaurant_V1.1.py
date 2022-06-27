@@ -33,6 +33,8 @@ DataRole = Qt.ItemDataRole.UserRole
 
 
 class PuiWindow(Ui_MainWindow, QMainWindow):
+
+
     def __init__(self):
         super().__init__()
 
@@ -43,6 +45,7 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
         self.load_items()
         self.setup_links()
 
+        subtotal: float
         self.subtotal = 0.00
         self.gain = 0.00
 
@@ -51,11 +54,11 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
             category = QTreeWidgetItem()
             category.setText(0, category_name)
             category.setData(0, DataRole, None)
-
+            item_price: float
             for item_name, item_price in item_list:
                 item = QTreeWidgetItem()
                 item.setText(0, item_name)
-                item.setText(1, str(item_price))
+                item.setText(1, str('{:.02f}'.format(item_price)))
                 item.setData(0, DataRole, item_price)
 
                 category.addChild(item)
@@ -68,17 +71,19 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
     def add_to_order(self, title, price):
         item = QListWidgetItem()
         item.setText(title)
-        item.data(price)
+        item.setData(DataRole, price)
         self.subtotal += price
         self.refresh_price()
         self.order_summarize.addItem(item)
 
     def order_item(self, item: QTreeWidgetItem):
+        price: float
         price = item.data(0, DataRole)
         if price is None:
             return
         item_name = item.text(0)
-        title = f'{item_name} -- ({price})'
+        pricetxt = '{:.02f}'.format(price)
+        title = f'{item_name} -- ({pricetxt})'
         self.add_to_order(title, price)
 
     def cancel_item(self):
