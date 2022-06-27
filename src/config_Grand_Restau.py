@@ -11,7 +11,7 @@ ALL_ITEMS = {
     ('Pâtes nature', 2.0),
     ('Pâtes tomates oignons basilic', 4.0),
     ('Pâtes carbonara', 6.0),
-    ('Buffet de legumes', 6.0),
+    ('Buffet de légumes', 6.0),
   ),
   'Poissons': (
     ('Panées de Cabillau', 4.0),
