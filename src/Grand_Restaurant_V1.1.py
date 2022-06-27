@@ -15,7 +15,7 @@
 #      initialy called "treeWidget" to "tree".
 
 from PyQt6.QtWidgets import QApplication, QMainWindow, \
-     QTreeWidgetItem
+     QTreeWidgetItem, QListWidgetItem
 from PyQt6.QtCore import Qt
 
 import os
@@ -41,6 +41,10 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
 
         # Some modifications
         self.load_items()
+        self.setup_links()
+
+        self.subtotal = 0
+        self.gain = 0
 
     def load_items(self):
         for category_name, item_list in ALL_ITEMS.items():
@@ -57,6 +61,33 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
                 category.addChild(item)
 
             self.tree.addTopLevelItem(category)
+
+    def setup_links(self):
+        self.tree.itemDoubleClicked.connect(self.order_item)
+
+    def add_to_order(self, title, price):
+        item = QListWidgetItem()
+        item.setText(title)
+        item.data(price)
+        self.subtotal += price
+        self.refresh_price()
+        self.order_summarize.addItem(item)
+
+    def order_item(self, item: QTreeWidgetItem):
+        price = item.data(0, DataRole)
+        if price is None:
+            return
+        item_name = item.text(0)
+        title = f'{item_name} -- ({price})'
+        self.add_to_order(title, price)
+
+    def cancel_item(self):
+        pass
+
+    def refresh_price(self):
+        self.subtotal_label.setText(str(self.subtotal))
+        total = self.subtotal * 1.1
+        self.total_label.setText(str(total))
 
 
 def main():
