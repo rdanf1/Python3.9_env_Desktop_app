@@ -37,8 +37,8 @@ class GuiWindow(QMainWindow):
         super().__init__()
 
         # Pff... for uic.loadUI to work with relative path...
-        print(os.chdir("/home/rdanf0/Bureau/Python3.9_virtualenv_demo/src"))
-
+        print(os.chdir(
+            "/home/rdanf0/Bureau/Python___Environments/Python3.9_env_Desktop_app/src"))
         # print(os.path.join('gui', 'interface_file.ui'))
         uic.loadUi(os.path.join('gui', 'interface_file.ui'), self)
 
