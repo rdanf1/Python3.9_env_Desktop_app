@@ -43,8 +43,8 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
         self.load_items()
         self.setup_links()
 
-        self.subtotal = 0
-        self.gain = 0
+        self.subtotal = 0.00
+        self.gain = 0.00
 
     def load_items(self):
         for category_name, item_list in ALL_ITEMS.items():
@@ -85,9 +85,11 @@ class PuiWindow(Ui_MainWindow, QMainWindow):
         pass
 
     def refresh_price(self):
-        self.subtotal_label.setText(str(self.subtotal))
-        total = self.subtotal * 1.1
-        self.total_label.setText(str(total))
+        # self.subtotal_label.setText(str(self.subtotal))
+        self.subtotal_label.setText('{:.02f}'.format(self.subtotal))
+        total = self.subtotal * 1.10
+        # self.total_label.setText(str(total))
+        self.total_label.setText('{:.02f}'.format(total))
 
 
 def main():
