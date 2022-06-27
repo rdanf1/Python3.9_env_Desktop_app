@@ -69,7 +69,7 @@ def main():
     first = GuiWindow()
     first.show()
 
-    # Simultaneous if commented
+    # Simultaneous if commented (first & second Windows opened later...)
     # app.exec()
 
     second = PuiWindow()
