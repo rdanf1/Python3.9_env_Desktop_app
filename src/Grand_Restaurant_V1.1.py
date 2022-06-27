@@ -25,15 +25,15 @@ import time
 # Importing the Timer subclass from the threading Class
 from threading import Timer
 
-from pui.interface_Restau_Carte_ou_Menus_V1 import Ui_MainWindow
+from pui.interface_Restau_Carte_ou_Menus_V2 import Ui_MainWindow
 
 from config_Grand_Restau_carte import ALL_ITEMS
+from config_Grand_Restau_menus import MENUS
 
 DataRole = Qt.ItemDataRole.UserRole
 
 
 class PuiWindow(Ui_MainWindow, QMainWindow):
-
 
     def __init__(self):
         super().__init__()
