@@ -32,8 +32,3 @@ ALL_ITEMS = {
     ('Café', 1.50)
   )
 }
-
-MENUS = (
-    {"ceci", "cela"},
-    {'cela', 'ceci'}
-)

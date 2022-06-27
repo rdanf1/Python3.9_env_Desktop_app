@@ -27,7 +27,7 @@ from threading import Timer
 
 from pui.interface_Restau_Carte_ou_Menus_V1 import Ui_MainWindow
 
-from config_Grand_Restau import ALL_ITEMS
+from config_Grand_Restau_carte import ALL_ITEMS
 
 DataRole = Qt.ItemDataRole.UserRole
 
