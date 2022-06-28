@@ -27,7 +27,7 @@ class MenuWindow(AppWindow):
             button = QPushButton()
             text = f'{menu["name"]} ({menu["price"]})'
             button.setText(text)
-            button.setSizePolicy(H_BTN_POLICY,V_BTN_POLICY)
+            button.setSizePolicy(H_BTN_POLICY, V_BTN_POLICY)
             button.clicked.connect(lambda *, m=menu: self.open_menu(m))
             self.menu_container.layout().addWidget(button)
 
