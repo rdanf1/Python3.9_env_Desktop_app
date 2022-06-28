@@ -33,6 +33,7 @@ class MenuWindow(AppWindow):
 
     def setup_links(self):
         super().setup_links()
+        self.cancel_menu_btn.clicked.connect(self.close_menu)
 
     def open_menu(self, menu: dict):
         # print(menu['name'])
@@ -71,7 +72,8 @@ class MenuWindow(AppWindow):
     def validate_menu(self):
         title = f'{self.menu["name"]} -- ({self.menu["price"]})'
         for item in self.items:
-            title += f'\n - (item)'
+            title += f'\n - {item}'
+        print(title)
         self.add_to_order(title, self.menu['price'])
         self.close_menu()
 
