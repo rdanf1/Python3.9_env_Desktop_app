@@ -81,7 +81,7 @@ class AppWindow(Ui_MainWindow, QMainWindow):
     def order_item(self, item: QTreeWidgetItem):
         # price: float
         price = item.data(0, DataRole)
-        if price is None:AppWindow
+        if price is None:
             return
         item_name = item.text(0)
         pricetxt = '{:.02f}'.format(price)

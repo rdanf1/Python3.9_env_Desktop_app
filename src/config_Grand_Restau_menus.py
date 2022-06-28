@@ -1,5 +1,5 @@
 STARTER_STEP = {
-  'name': 'Entrée',
+  'name': "Entrée",
   'items': ('Salade au choix', 'Avocat pesto')
 }
 
@@ -13,12 +13,19 @@ DESERT_STEP = {
   'items': ('Desserts du jour', 'Café gourmand')
 }
 
+# To make it tuple !?.. (single) aborts
+VOID_STEP = {
+  'name': "Carafe d'O",
+  'items': ('Carafe', 'DO')
+}
+
 MENUS = (
     {
       'name': 'Entrée seule',
       'price': 6.00,
       'steps': (
-        STARTER_STEP
+         STARTER_STEP,
+         VOID_STEP
       )
     },
     {
@@ -42,7 +49,8 @@ MENUS = (
       'name': 'Dessert seul',
       'price': 6.00,
       'steps': (
-        DESERT_STEP
+        DESERT_STEP,
+        VOID_STEP
       )
     }
 )
