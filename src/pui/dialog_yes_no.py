@@ -24,15 +24,19 @@ class Ui_Dialog(object):
         self.no_btn.setAutoFillBackground(True)
         self.no_btn.setObjectName("no_btn")
         self.yes_btn = QtWidgets.QPushButton(Dialog)
-        self.yes_btn.setGeometry(QtCore.QRect(0, 90, 491, 121))
+        self.yes_btn.setGeometry(QtCore.QRect(10, 80, 471, 131))
         font = QtGui.QFont()
         font.setPointSize(36)
         self.yes_btn.setFont(font)
         self.yes_btn.setToolTip("")
         self.yes_btn.setObjectName("yes_btn")
-        self.textEdit = QtWidgets.QTextEdit(Dialog)
-        self.textEdit.setGeometry(QtCore.QRect(10, 40, 471, 41))
-        self.textEdit.setObjectName("textEdit")
+        self.content = QtWidgets.QLabel(Dialog)
+        self.content.setGeometry(QtCore.QRect(70, 40, 401, 31))
+        font = QtGui.QFont()
+        font.setFamily("Jomolhari")
+        font.setPointSize(18)
+        self.content.setFont(font)
+        self.content.setObjectName("content")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -42,17 +46,7 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.no_btn.setText(_translate("Dialog", "Non Chui pas sûr à 100%..."))
         self.yes_btn.setText(_translate("Dialog", "OUI"))
-        self.textEdit.setHtml(_translate("Dialog", \
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Sans Serif\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \
-text-indent:0px;\"><span style=\" font-size:18pt; font-weight:700; color:#aa0000;\">\
-\
-Etes-vous bien SÛR ? ( à 100% )\
-\
-</span></p></body></html>"))
+        self.content.setText(_translate("Dialog", "Etes-vous bien SÛR ? ( à 100% )"))
 
 
 if __name__ == "__main__":
