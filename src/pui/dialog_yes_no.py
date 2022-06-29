@@ -33,7 +33,6 @@ class Ui_Dialog(object):
         self.content = QtWidgets.QLabel(Dialog)
         self.content.setGeometry(QtCore.QRect(70, 40, 401, 31))
         font = QtGui.QFont()
-        font.setFamily("Jomolhari")
         font.setPointSize(18)
         self.content.setFont(font)
         self.content.setObjectName("content")

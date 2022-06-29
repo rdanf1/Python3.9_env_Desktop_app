@@ -9,4 +9,9 @@ class DialogWindow(Ui_Dialog, QDialog):
         super().__init__()
 
         # Enable UI file parameters
-        self.setupUI(self)
+        self.setupUi(self)
+        # Fill the Warning msg
+        self.content.setText(text)
+        # Case a button is pressed
+        self.yes_btn.clicked.connect(self.accept)
+        self.no_btn.clicked.connect(self.reject)

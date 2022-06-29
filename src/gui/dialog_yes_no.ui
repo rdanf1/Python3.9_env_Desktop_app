@@ -58,7 +58,7 @@
     </font>
    </property>
    <property name="toolTip">
-    <string extracomment="Braavo !!!"/>
+    <string/>
    </property>
    <property name="text">
     <string>OUI</string>
@@ -75,7 +75,6 @@
    </property>
    <property name="font">
     <font>
-     <family>Jomolhari</family>
      <pointsize>18</pointsize>
     </font>
    </property>

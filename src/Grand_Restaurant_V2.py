@@ -29,6 +29,8 @@ from pui.interface_Restau_Carte_ou_Menus_V2 import Ui_MainWindow
 
 from config_Grand_Restau_carte import ALL_ITEMS
 
+from dialog_OuiNon import DialogWindow
+
 DataRole = Qt.ItemDataRole.UserRole
 
 
@@ -103,11 +105,21 @@ class AppWindow(Ui_MainWindow, QMainWindow):
         self.total_label.setText('{:.02f}'.format(total))
 
     def pay(self):
+        dialog = DialogWindow('Êtes-vous sûr de vouloir PAYER/VALIDER ?')
+        dialog.accepted.connect(self.apply_pay)
+        dialog.exec()
+
+    def apply_pay(self):
         self.gain += self.subtotal
         self.gain_label.setText('{:.02f}'.format(self.gain))
-        self.cancel()
+        self.apply_cancel()
 
     def cancel(self):
+        dialog = DialogWindow('Êtes-vous sûr de vouloir ANNULER ?')
+        dialog.accepted.connect(self.apply_cancel)
+        dialog.exec()
+
+    def apply_cancel(self):
         self.order_summarize.clear()
         self.subtotal = 0.00
         self.refresh_price()
